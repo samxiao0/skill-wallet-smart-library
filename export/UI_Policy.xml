@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unload unload_date="2026-07-05 00:00:00">
+
+    <!-- ============================================================= -->
+    <!-- UI POLICY: Show Return Date / Lock fields when Status=Issued  -->
+    <!-- ============================================================= -->
+    <sys_ui_policy action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <conditions>u_status=issued</conditions>
+        <description>When Borrow Request Status is Issued, require Return Date and lock Book / Requested By</description>
+        <global>true</global>
+        <name>Issued Status Policy</name>
+        <on_load>true</on_load>
+        <order>100</order>
+        <reverse_if_false>true</reverse_if_false>
+        <run_scripts>false</run_scripts>
+        <short_description>Return Date mandatory + visible; Book and Requested By read only</short_description>
+        <sys_id>d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1</sys_id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-06-28 10:00:00</sys_created_on>
+        <table>u_borrow_request</table>
+    </sys_ui_policy>
+
+    <!-- UI Policy Action: Return Date -> Mandatory + Visible -->
+    <sys_ui_policy_action action="INSERT_OR_UPDATE">
+        <disabled>false</disabled>
+        <field>u_return_date</field>
+        <mandatory>true</mandatory>
+        <sys_id>e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2</sys_id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-06-28 10:01:00</sys_created_on>
+        <ui_policy>d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1</ui_policy>
+        <visible>true</visible>
+    </sys_ui_policy_action>
+
+    <!-- UI Policy Action: Book -> Read Only -->
+    <sys_ui_policy_action action="INSERT_OR_UPDATE">
+        <disabled>false</disabled>
+        <field>u_book</field>
+        <read_only>true</read_only>
+        <sys_id>f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3</sys_id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-06-28 10:02:00</sys_created_on>
+        <ui_policy>d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1</ui_policy>
+        <visible>true</visible>
+    </sys_ui_policy_action>
+
+    <!-- UI Policy Action: Requested By -> Read Only -->
+    <sys_ui_policy_action action="INSERT_OR_UPDATE">
+        <disabled>false</disabled>
+        <field>u_requested_by</field>
+        <read_only>true</read_only>
+        <sys_id>a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4</sys_id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-06-28 10:03:00</sys_created_on>
+        <ui_policy>d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1</ui_policy>
+        <visible>true</visible>
+    </sys_ui_policy_action>
+
+</unload>

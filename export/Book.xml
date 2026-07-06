@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unload unload_date="2026-07-05 00:00:00">
+    <!-- ============================ -->
+    <!-- TABLE DEFINITION: u_book     -->
+    <!-- ============================ -->
+    <sys_db_object action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <create_access_controls>true</create_access_controls>
+        <extension_model/>
+        <label>Book</label>
+        <name>u_book</name>
+        <number_ref/>
+        <sys_class_name>sys_db_object</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-10 10:00:00</sys_created_on>
+        <sys_id>b1a2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Book</sys_name>
+        <sys_package display_value="Global">global</sys_package>
+        <sys_scope display_value="Global">global</sys_scope>
+        <sys_update_name>sys_db_object_u_book</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-10 10:00:00</sys_updated_on>
+        <user_role/>
+    </sys_db_object>
+
+    <!-- ============================ -->
+    <!-- FIELD: Book ID               -->
+    <!-- ============================ -->
+    <sys_dictionary action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <column_label>Book ID</column_label>
+        <element>u_book_id</element>
+        <internal_type>string</internal_type>
+        <max_length>40</max_length>
+        <mandatory>true</mandatory>
+        <name>u_book</name>
+        <sys_id>d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5</sys_id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-10 10:01:00</sys_created_on>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-10 10:01:00</sys_updated_on>
+        <unique>true</unique>
+    </sys_dictionary>
+
+    <!-- ============================ -->
+    <!-- FIELD: Title                 -->
+    <!-- ============================ -->
+    <sys_dictionary action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <column_label>Title</column_label>
+        <element>u_title</element>
+        <internal_type>string</internal_type>
+        <max_length>200</max_length>
+        <mandatory>true</mandatory>
+        <name>u_book</name>
+        <sys_id>e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6</sys_id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-10 10:02:00</sys_created_on>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-10 10:02:00</sys_updated_on>
+    </sys_dictionary>
+
+    <!-- ============================ -->
+    <!-- FIELD: Author                -->
+    <!-- ============================ -->
+    <sys_dictionary action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <column_label>Author</column_label>
+        <element>u_author</element>
+        <internal_type>string</internal_type>
+        <max_length>150</max_length>
+        <mandatory>true</mandatory>
+        <name>u_book</name>
+        <sys_id>f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7</sys_id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-10 10:03:00</sys_created_on>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-10 10:03:00</sys_updated_on>
+    </sys_dictionary>
+
+    <!-- ============================ -->
+    <!-- FIELD: ISBN                  -->
+    <!-- ============================ -->
+    <sys_dictionary action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <column_label>ISBN</column_label>
+        <element>u_isbn</element>
+        <internal_type>string</internal_type>
+        <max_length>20</max_length>
+        <mandatory>true</mandatory>
+        <name>u_book</name>
+        <sys_id>a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8</sys_id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-10 10:04:00</sys_created_on>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-10 10:04:00</sys_updated_on>
+        <unique>true</unique>
+    </sys_dictionary>
+
+    <!-- ============================ -->
+    <!-- FIELD: Category              -->
+    <!-- ============================ -->
+    <sys_dictionary action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <column_label>Category</column_label>
+        <element>u_category</element>
+        <internal_type>string</internal_type>
+        <max_length>100</max_length>
+        <mandatory>false</mandatory>
+        <name>u_book</name>
+        <sys_id>b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9</sys_id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-10 10:05:00</sys_created_on>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-10 10:05:00</sys_updated_on>
+    </sys_dictionary>
+
+    <!-- ============================ -->
+    <!-- FIELD: Status (Choice)       -->
+    <!-- ============================ -->
+    <sys_dictionary action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <column_label>Status</column_label>
+        <default_value>Available</default_value>
+        <element>u_status</element>
+        <internal_type>choice</internal_type>
+        <mandatory>true</mandatory>
+        <name>u_book</name>
+        <sys_id>c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</sys_id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-10 10:06:00</sys_created_on>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-10 10:06:00</sys_updated_on>
+    </sys_dictionary>
+
+    <!-- Choice options for u_status -->
+    <sys_choice action="INSERT_OR_UPDATE">
+        <element>u_status</element>
+        <label>Available</label>
+        <name>u_book</name>
+        <sequence>100</sequence>
+        <sys_id>d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1</sys_id>
+        <value>available</value>
+    </sys_choice>
+    <sys_choice action="INSERT_OR_UPDATE">
+        <element>u_status</element>
+        <label>Issued</label>
+        <name>u_book</name>
+        <sequence>200</sequence>
+        <sys_id>e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2</sys_id>
+        <value>issued</value>
+    </sys_choice>
+    <sys_choice action="INSERT_OR_UPDATE">
+        <element>u_status</element>
+        <label>Lost</label>
+        <name>u_book</name>
+        <sequence>300</sequence>
+        <sys_id>f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3</sys_id>
+        <value>lost</value>
+    </sys_choice>
+
+    <!-- ============================ -->
+    <!-- FIELD: Total Copies          -->
+    <!-- ============================ -->
+    <sys_dictionary action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <column_label>Total Copies</column_label>
+        <default_value>1</default_value>
+        <element>u_total_copies</element>
+        <internal_type>integer</internal_type>
+        <mandatory>true</mandatory>
+        <name>u_book</name>
+        <sys_id>a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4</sys_id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-10 10:07:00</sys_created_on>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-10 10:07:00</sys_updated_on>
+    </sys_dictionary>
+</unload>

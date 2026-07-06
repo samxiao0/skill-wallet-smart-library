@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unload unload_date="2026-07-05 00:00:00">
+
+    <!-- ===================================================== -->
+    <!-- ACL: u_book (Read) - Student, Librarian                -->
+    <!-- ===================================================== -->
+    <sys_security_acl action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <admin_overrides>true</admin_overrides>
+        <description>Students and Librarians can read Book records</description>
+        <name>u_book</name>
+        <operation>read</operation>
+        <script/>
+        <sys_id>f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5</sys_id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-15 09:00:00</sys_created_on>
+        <type>record</type>
+    </sys_security_acl>
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_security_acl>f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5</sys_security_acl>
+        <sys_user_role display_value="student">student</sys_user_role>
+        <sys_id>a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6</sys_id>
+    </sys_security_acl_role>
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_security_acl>f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5</sys_security_acl>
+        <sys_user_role display_value="librarian">librarian</sys_user_role>
+        <sys_id>b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7</sys_id>
+    </sys_security_acl_role>
+
+    <!-- ===================================================== -->
+    <!-- ACL: u_book (Write) - Librarian only                   -->
+    <!-- ===================================================== -->
+    <sys_security_acl action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <admin_overrides>true</admin_overrides>
+        <description>Only Librarians can write to Book records</description>
+        <name>u_book</name>
+        <operation>write</operation>
+        <script/>
+        <sys_id>c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8</sys_id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-15 09:01:00</sys_created_on>
+        <type>record</type>
+    </sys_security_acl>
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_security_acl>c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8</sys_security_acl>
+        <sys_user_role display_value="librarian">librarian</sys_user_role>
+        <sys_id>d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9</sys_id>
+    </sys_security_acl_role>
+
+    <!-- ===================================================== -->
+    <!-- ACL: u_book (Delete) - Librarian only                  -->
+    <!-- ===================================================== -->
+    <sys_security_acl action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <admin_overrides>true</admin_overrides>
+        <description>Only Librarians can delete Book records</description>
+        <name>u_book</name>
+        <operation>delete</operation>
+        <script/>
+        <sys_id>e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0</sys_id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-15 09:02:00</sys_created_on>
+        <type>record</type>
+    </sys_security_acl>
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_security_acl>e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0</sys_security_acl>
+        <sys_user_role display_value="librarian">librarian</sys_user_role>
+        <sys_id>f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1</sys_id>
+    </sys_security_acl_role>
+
+    <!-- ===================================================== -->
+    <!-- ACL: u_borrow_request (Create) - Student                -->
+    <!-- ===================================================== -->
+    <sys_security_acl action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <admin_overrides>true</admin_overrides>
+        <description>Students can create Borrow Requests</description>
+        <name>u_borrow_request</name>
+        <operation>create</operation>
+        <script/>
+        <sys_id>a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2</sys_id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-15 09:03:00</sys_created_on>
+        <type>record</type>
+    </sys_security_acl>
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_security_acl>a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2</sys_security_acl>
+        <sys_user_role display_value="student">student</sys_user_role>
+        <sys_id>b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3</sys_id>
+    </sys_security_acl_role>
+
+    <!-- ===================================================== -->
+    <!-- ACL: u_borrow_request (Read) - Student (own), Librarian -->
+    <!-- ===================================================== -->
+    <sys_security_acl action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <admin_overrides>true</admin_overrides>
+        <condition>u_requested_by=javascript:gs.getUserID()</condition>
+        <description>Students can read their own requests; Librarians can read all</description>
+        <name>u_borrow_request</name>
+        <operation>read</operation>
+        <script/>
+        <sys_id>c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4</sys_id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-15 09:04:00</sys_created_on>
+        <type>record</type>
+    </sys_security_acl>
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_security_acl>c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4</sys_security_acl>
+        <sys_user_role display_value="student">student</sys_user_role>
+        <sys_id>d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5</sys_id>
+    </sys_security_acl_role>
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_security_acl>c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4</sys_security_acl>
+        <sys_user_role display_value="librarian">librarian</sys_user_role>
+        <sys_id>e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6</sys_id>
+    </sys_security_acl_role>
+
+    <!-- ===================================================== -->
+    <!-- ACL: u_borrow_request (Write) - Librarian only          -->
+    <!-- ===================================================== -->
+    <sys_security_acl action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <admin_overrides>true</admin_overrides>
+        <description>Only Librarians can update Borrow Requests</description>
+        <name>u_borrow_request</name>
+        <operation>write</operation>
+        <script/>
+        <sys_id>f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7</sys_id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-15 09:05:00</sys_created_on>
+        <type>record</type>
+    </sys_security_acl>
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_security_acl>f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7</sys_security_acl>
+        <sys_user_role display_value="librarian">librarian</sys_user_role>
+        <sys_id>a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8</sys_id>
+    </sys_security_acl_role>
+
+    <!-- ===================================================== -->
+    <!-- ACL: u_borrow_request (Delete) - Librarian only         -->
+    <!-- ===================================================== -->
+    <sys_security_acl action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <admin_overrides>true</admin_overrides>
+        <description>Only Librarians can delete Borrow Requests</description>
+        <name>u_borrow_request</name>
+        <operation>delete</operation>
+        <script/>
+        <sys_id>b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9</sys_id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-15 09:06:00</sys_created_on>
+        <type>record</type>
+    </sys_security_acl>
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_security_acl>b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9</sys_security_acl>
+        <sys_user_role display_value="librarian">librarian</sys_user_role>
+        <sys_id>c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0</sys_id>
+    </sys_security_acl_role>
+
+</unload>

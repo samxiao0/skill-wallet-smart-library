@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unload unload_date="2026-07-05 00:00:00">
+    <!-- ================================== -->
+    <!-- TABLE DEFINITION: u_borrow_request -->
+    <!-- ================================== -->
+    <sys_db_object action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <create_access_controls>true</create_access_controls>
+        <extension_model/>
+        <label>Borrow Request</label>
+        <name>u_borrow_request</name>
+        <number_ref/>
+        <sys_class_name>sys_db_object</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-10 11:00:00</sys_created_on>
+        <sys_id>c2b3d4e5f6a7b8c9d0e1f2a3b4c5d6e7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Borrow Request</sys_name>
+        <sys_package display_value="Global">global</sys_package>
+        <sys_scope display_value="Global">global</sys_scope>
+        <sys_update_name>sys_db_object_u_borrow_request</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-10 11:00:00</sys_updated_on>
+        <user_role/>
+    </sys_db_object>
+
+    <!-- ============================ -->
+    <!-- FIELD: Requested By          -->
+    <!-- ============================ -->
+    <sys_dictionary action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <column_label>Requested By</column_label>
+        <element>u_requested_by</element>
+        <internal_type>reference</internal_type>
+        <mandatory>true</mandatory>
+        <name>u_borrow_request</name>
+        <reference>sys_user</reference>
+        <sys_id>b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5</sys_id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-10 11:01:00</sys_created_on>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-10 11:01:00</sys_updated_on>
+    </sys_dictionary>
+
+    <!-- ============================ -->
+    <!-- FIELD: Book                  -->
+    <!-- ============================ -->
+    <sys_dictionary action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <column_label>Book</column_label>
+        <element>u_book</element>
+        <internal_type>reference</internal_type>
+        <mandatory>true</mandatory>
+        <name>u_borrow_request</name>
+        <reference>u_book</reference>
+        <sys_id>c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6</sys_id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-10 11:02:00</sys_created_on>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-10 11:02:00</sys_updated_on>
+        <!-- Reference Qualifier: only Available books can be requested -->
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <reference_qual>u_status=available</reference_qual>
+        <reference_qual_condition>u_status=available</reference_qual_condition>
+    </sys_dictionary>
+
+    <!-- ============================ -->
+    <!-- FIELD: Request Date          -->
+    <!-- ============================ -->
+    <sys_dictionary action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <column_label>Request Date</column_label>
+        <element>u_request_date</element>
+        <internal_type>glide_date_time</internal_type>
+        <mandatory>true</mandatory>
+        <name>u_borrow_request</name>
+        <sys_id>d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7</sys_id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-10 11:03:00</sys_created_on>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-10 11:03:00</sys_updated_on>
+    </sys_dictionary>
+
+    <!-- ============================ -->
+    <!-- FIELD: Return Date           -->
+    <!-- ============================ -->
+    <sys_dictionary action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <column_label>Return Date</column_label>
+        <element>u_return_date</element>
+        <internal_type>glide_date</internal_type>
+        <mandatory>false</mandatory>
+        <name>u_borrow_request</name>
+        <sys_id>e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8</sys_id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-10 11:04:00</sys_created_on>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-10 11:04:00</sys_updated_on>
+    </sys_dictionary>
+
+    <!-- ============================ -->
+    <!-- FIELD: Status (Choice)       -->
+    <!-- ============================ -->
+    <sys_dictionary action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <column_label>Status</column_label>
+        <default_value>Requested</default_value>
+        <element>u_status</element>
+        <internal_type>choice</internal_type>
+        <mandatory>true</mandatory>
+        <name>u_borrow_request</name>
+        <sys_id>f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9</sys_id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-10 11:05:00</sys_created_on>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-10 11:05:00</sys_updated_on>
+    </sys_dictionary>
+
+    <!-- Choice options for u_status -->
+    <sys_choice action="INSERT_OR_UPDATE">
+        <element>u_status</element>
+        <label>Requested</label>
+        <name>u_borrow_request</name>
+        <sequence>100</sequence>
+        <sys_id>a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0</sys_id>
+        <value>requested</value>
+    </sys_choice>
+    <sys_choice action="INSERT_OR_UPDATE">
+        <element>u_status</element>
+        <label>Approved</label>
+        <name>u_borrow_request</name>
+        <sequence>200</sequence>
+        <sys_id>b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1</sys_id>
+        <value>approved</value>
+    </sys_choice>
+    <sys_choice action="INSERT_OR_UPDATE">
+        <element>u_status</element>
+        <label>Rejected</label>
+        <name>u_borrow_request</name>
+        <sequence>300</sequence>
+        <sys_id>c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2</sys_id>
+        <value>rejected</value>
+    </sys_choice>
+    <sys_choice action="INSERT_OR_UPDATE">
+        <element>u_status</element>
+        <label>Returned</label>
+        <name>u_borrow_request</name>
+        <sequence>400</sequence>
+        <sys_id>d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3</sys_id>
+        <value>returned</value>
+    </sys_choice>
+
+    <!-- ================================== -->
+    <!-- RELATED LIST: Book -> Borrow Reqs  -->
+    <!-- ================================== -->
+    <sys_ui_related_list action="INSERT_OR_UPDATE">
+        <edge/>
+        <name>u_borrow_request</name>
+        <parent>u_book</parent>
+        <parent_field>u_book</parent_field>
+        <position>10</position>
+        <sys_id>e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4</sys_id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-10 11:10:00</sys_created_on>
+    </sys_ui_related_list>
+</unload>

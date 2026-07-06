@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  NOTE: Real ServiceNow Flow Designer exports store the flow logic as a
+  minified JSON "snapshot" inside <sys_hub_flow><snapshot>. That JSON is
+  generated internally by the platform and isn't meant to be hand-written.
+  The structure below reproduces the record shape ServiceNow uses
+  (sys_hub_flow + sys_hub_trigger_instance + sys_hub_action_instance) with
+  a readable, de-minified snapshot so it reflects the "Borrow Request
+  Approval Flow" logic documented in the project. Re-importing this into a
+  real instance will register the flow, but you should open it in Flow
+  Designer afterward to confirm each action step maps correctly.
+-->
+<unload unload_date="2026-07-05 00:00:00">
+
+    <!-- ===================================================== -->
+    <!-- FLOW: Borrow Request Approval Flow                     -->
+    <!-- ===================================================== -->
+    <sys_hub_flow action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <description>Automates the approval, book status update, and notification steps when a Borrow Request is submitted.</description>
+        <internal_name>borrow_request_approval_flow</internal_name>
+        <name>Borrow Request Approval Flow</name>
+        <run_as>system</run_as>
+        <sys_class_name>sys_hub_flow</sys_class_name>
+        <sys_id>d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6</sys_id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-06-28 14:00:00</sys_created_on>
+        <sys_scope display_value="Global">global</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-06-28 14:00:00</sys_updated_on>
+        <table>u_borrow_request</table>
+        <type>flow</type>
+        <snapshot><![CDATA[
+{
+  "trigger": {
+    "type": "record_created",
+    "table": "u_borrow_request",
+    "condition": "u_status=requested"
+  },
+  "actions": [
+    {
+      "order": 100,
+      "name": "Ask For Approval",
+      "type": "core.approval.ask_for_approval",
+      "inputs": {
+        "table": "u_borrow_request",
+        "approver": "librarian",
+        "approval_field": "u_status"
+      },
+      "outputs": {
+        "approval_result": "string (approved|rejected)"
+      }
+    },
+    {
+      "order": 200,
+      "name": "Decision - Approved?",
+      "type": "core.flow_logic.decision",
+      "condition": "approval_result == 'approved'",
+      "on_true": "goto:300",
+      "on_false": "goto:500"
+    },
+    {
+      "order": 300,
+      "name": "Update Book",
+      "type": "core.record.update",
+      "inputs": {
+        "table": "u_book",
+        "record": "{{trigger.record.u_book}}",
+        "fields": {
+          "u_status": "issued"
+        }
+      }
+    },
+    {
+      "order": 400,
+      "name": "Update Borrow Request",
+      "type": "core.record.update",
+      "inputs": {
+        "table": "u_borrow_request",
+        "record": "{{trigger.record}}",
+        "fields": {
+          "u_status": "approved"
+        }
+      }
+    },
+    {
+      "order": 410,
+      "name": "Send Email - Approved",
+      "type": "core.notification.send_email",
+      "inputs": {
+        "to": "{{trigger.record.u_requested_by}}",
+        "subject": "Borrow Request Approved",
+        "body": "Your borrow request for {{trigger.record.u_book.u_title}} has been approved. Please collect it from the library."
+      },
+      "goto": "end"
+    },
+    {
+      "order": 500,
+      "name": "Reject Request",
+      "type": "core.record.update",
+      "inputs": {
+        "table": "u_borrow_request",
+        "record": "{{trigger.record}}",
+        "fields": {
+          "u_status": "rejected"
+        }
+      }
+    },
+    {
+      "order": 510,
+      "name": "Send Email - Rejected",
+      "type": "core.notification.send_email",
+      "inputs": {
+        "to": "{{trigger.record.u_requested_by}}",
+        "subject": "Borrow Request Rejected",
+        "body": "Your borrow request for {{trigger.record.u_book.u_title}} was not approved by the librarian."
+      },
+      "goto": "end"
+    }
+  ]
+}
+        ]]></snapshot>
+    </sys_hub_flow>
+
+    <!-- ===================================================== -->
+    <!-- TRIGGER INSTANCE: Record Created, Status = Requested   -->
+    <!-- ===================================================== -->
+    <sys_hub_trigger_instance action="INSERT_OR_UPDATE">
+        <condition>u_status=requested</condition>
+        <flow>d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6</flow>
+        <order>0</order>
+        <sys_id>e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7</sys_id>
+        <table>u_borrow_request</table>
+        <trigger_type>created</trigger_type>
+    </sys_hub_trigger_instance>
+
+    <!-- ===================================================== -->
+    <!-- ACTION INSTANCE 1: Ask For Approval (Librarian)         -->
+    <!-- ===================================================== -->
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_name>Ask For Approval</action_name>
+        <action_type_dv>Ask For Approval</action_type_dv>
+        <flow>d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6</flow>
+        <order>100</order>
+        <sys_id>f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8</sys_id>
+        <values><![CDATA[{"table":"u_borrow_request","approver_role":"librarian"}]]></values>
+    </sys_hub_action_instance>
+
+    <!-- ===================================================== -->
+    <!-- ACTION INSTANCE 2: Decision - Approved?                -->
+    <!-- ===================================================== -->
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_name>Decision - Approved?</action_name>
+        <action_type_dv>Flow Logic - Decision</action_type_dv>
+        <flow>d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6</flow>
+        <order>200</order>
+        <sys_id>a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9</sys_id>
+        <values><![CDATA[{"condition":"approval_result == 'approved'"}]]></values>
+    </sys_hub_action_instance>
+
+    <!-- ===================================================== -->
+    <!-- ACTION INSTANCE 3: Update Book -> Issued                -->
+    <!-- ===================================================== -->
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_name>Update Book</action_name>
+        <action_type_dv>Update Record</action_type_dv>
+        <flow>d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6</flow>
+        <order>300</order>
+        <sys_id>b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0</sys_id>
+        <values><![CDATA[{"table":"u_book","field":"u_status","value":"issued"}]]></values>
+    </sys_hub_action_instance>
+
+    <!-- ===================================================== -->
+    <!-- ACTION INSTANCE 4: Update Borrow Request -> Approved    -->
+    <!-- ===================================================== -->
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_name>Update Borrow Request</action_name>
+        <action_type_dv>Update Record</action_type_dv>
+        <flow>d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6</flow>
+        <order>400</order>
+        <sys_id>c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1</sys_id>
+        <values><![CDATA[{"table":"u_borrow_request","field":"u_status","value":"approved"}]]></values>
+    </sys_hub_action_instance>
+
+    <!-- ===================================================== -->
+    <!-- ACTION INSTANCE 5: Send Email - Approved                -->
+    <!-- ===================================================== -->
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_name>Send Email - Approved</action_name>
+        <action_type_dv>Send Email</action_type_dv>
+        <flow>d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6</flow>
+        <order>410</order>
+        <sys_id>d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2</sys_id>
+        <values><![CDATA[{"to":"trigger.record.u_requested_by","subject":"Borrow Request Approved"}]]></values>
+    </sys_hub_action_instance>
+
+</unload>
