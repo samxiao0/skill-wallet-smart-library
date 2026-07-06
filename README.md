@@ -144,39 +144,106 @@ Reports & Analytics
 # 📂 Project Structure
 
 ```text
-Smart-Library-ServiceNow
+skill-wallet-smart-library/
 │
-├── Documentation/
-│   ├── Phase 1 Requirement Analysis & Planning
-│   ├── Phase 2 Backend Development & Configurations
-│   ├── Phase 3 UI/UX Development & Customization
-│   ├── Phase 4 Data Migration, Testing & Security
-│   ├── Phase 5 Deployment, Documentation & Presentation
-│   └── Project Conclusion
+├── 📁 demo-video/
+│   └── readme.md
 │
-├── screenshots/
+├── 📁 Documentation/
+│   │
+│   ├── 📁 Ideation Phase/
+│   │   ├── Brainstorm.pdf
+│   │   ├── Define_the_Problem_Statements.pdf
+│   │   └── Empathizes.pdf
+│   │
+│   ├── 📁 Project Planning Phase/
+│   │   ├── Project_Planning.pdf
+│   │   └── Planning_Logic.pdf
+│   │
+│   ├── 📁 Requirements Analysis/
+│   │   ├── Customer_Journey_Map.pdf
+│   │   └── Solution_Requirements.pdf
+│   │
+│   ├── 📁 Project Design Phase/
+│   │   ├── Proposed_Solution.pdf
+│   │   └── Solution_Architecture.pdf
+│   │
+│   ├── 📁 Project Development Phase/
+│   │   └── Development.pdf
+│   │
+│   ├── 📁 Project Documentation/
+│   │   └── Final_Project_Report.pdf
+│   │
+│   └── README.md
 │
-├── flow-designer/
+├── 📁 export/
+│   ├── ACL.xml
+│   ├── Book.xml
+│   ├── Borrow_Request.xml
+│   ├── Flow.xml
+│   ├── Report.xml
+│   └── UI_Policy.xml
 │
-├── tables/
+├── 📁 screenshots/
+│   ├── final-flow.png
+│   ├── flow-trigger.png
+│   ├── Form-preview.png
+│   ├── Individual-variable-config.png
+│   └── variable.png
 │
-├── variables/
+├── 📁 workflow_images/
+│   │
+│   ├── 📁 acl/
+│   │   ├── Book_Read_ACL.png
+│   │   ├── Book_Write_ACL.png
+│   │   ├── Book_Delete_ACL.png
+│   │   ├── Borrow_Request_Create.png
+│   │   ├── Borrow_Request_Read.png
+│   │   ├── Borrow_Request_Write.png
+│   │   └── Borrow_Request_Delete.png
+│   │
+│   ├── 📁 flow_designer/
+│   │   ├── flow-overview.png
+│   │   ├── trigger.png
+│   │   ├── approval_action.png
+│   │   ├── decision_node.png
+│   │   ├── Update_Book.png
+│   │   ├── Update_Borrow_Request.png
+│   │   ├── Send_Email.png
+│   │   └── Flow_Test.png
+│   │
+│   ├── 📁 reports/
+│   │   ├── Active_Borrow_Requests.png
+│   │   ├── Most_Borrowed_Books.png
+│   │   ├── Bar_Chart.png
+│   │   └── Report_Filter.png
+│   │
+│   ├── 📁 tables/
+│   │   ├── Book_Table.png
+│   │   ├── Book_Dictionary.png
+│   │   ├── Book_Fields.png
+│   │   ├── Borrow_Request_Table.png
+│   │   ├── Borrow_Request_Dictionary.png
+│   │   └── Borrow_Request_Fields.png
+│   │
+│   ├── 📁 ui-policy/
+│   │   ├── UI_Policy.png
+│   │   ├── UI_Policy_Action.png
+│   │   ├── Return_Date_Mandatory.png
+│   │   └── Read_Only_Fields.png
+│   │
+│   └── 📁 variables/
+│       ├── Book.png
+│       ├── Book_Variable_Config.png
+│       ├── Requested_By.png
+│       ├── Request_Date.png
+│       ├── Return_Date.png
+│       └── Status.png
 │
-├── ui-policy/
-│
-├── acl/
-│
-├── reports/
-│
-├── exports/
-│
-├── demo-video/
-│
-├── README.md
+├── .gitignore
 ├── LICENSE
-└── .gitignore
+└── README.md
 ```
-
 ---
 
 # 🛠️ Technology Stack
