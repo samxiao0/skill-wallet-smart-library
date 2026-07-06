@@ -1,29 +1,5 @@
 # 📚 Smart Library Request Workflow
 
-**Developed by:** 
-
-**1. Name:** SYED MOHAMMAD SAMEER  
-
-**Roll No.:** 23HM1A3354
-
-**2. Name:**  
-
-**Roll No.:** 
-
-**3. Name:**  
-
-**Roll No.:** 
-
-**4. Name:**  
-
-**Roll No.:** 
-
-**5. Name:**  
-
-**Roll No.:** 
-
-**college:** ANNAMACHARYA INSTITUTE OF TECHNOLOGY AND SCIENCES
-
 **Internship:** SmartBridge × ServiceNow SkillWallet Internship  
 **Project:** Smart Library Request Workflow  
 **Platform:** ServiceNow  
@@ -408,7 +384,25 @@ This project was developed as part of the **SmartBridge × ServiceNow SkillWalle
 
 ## 👨‍💻 Author
 
-**SYED MOHAMMAD SAMEER**
+**1. Name:** SYED MOHAMMAD SAMEER  
+
+**Roll No.:** 23HM1A3354
+
+**2. Name:**  
+
+**Roll No.:** 
+
+**3. Name:**  
+
+**Roll No.:** 
+
+**4. Name:**  
+
+**Roll No.:** 
+
+**5. Name:**  
+
+**Roll No.:** 
 
 **B.Tech – Computer Science & Engineering (AI & ML)**
 
